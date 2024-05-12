@@ -1,3 +1,4 @@
+package Server;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -14,20 +15,11 @@ public class Server {
                 Socket cliente = server.accept();
                 System.out.println("Cliente conected:"+ cliente.getInetAddress().getHostAddress());
 
-                Login login = new Login(cliente);
+                ClientConnection clientConnection = new ClientConnection(cliente);
+
+                Login login = new Login(clientConnection);
                 Thread loginThread = new Thread(login);
                 loginThread.start();
-                
-                try {
-                    loginThread.join();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                
-                String username = login.getUsername();
-                System.out.println("Server "+username);
-
-                // adicionar thread de chat
             }
         } catch (IOException e) {
             System.out.println(e);
