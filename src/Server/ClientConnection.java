@@ -20,7 +20,7 @@ public class ClientConnection {
         }
     }
 
-    public void sendMenssage(String messsage) {
+    public void sendMessage(String messsage) {
         out.println(messsage);
     }
 

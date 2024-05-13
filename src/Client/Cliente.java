@@ -26,9 +26,11 @@ public class Cliente {
             out.println(message);
             System.out.println(in.readLine());
         }
+        System.out.println("Conexão encerrada");
 
         out.close();
         in.close();
         socket.close();
     }
+
 }

@@ -1,34 +1,30 @@
 package Server;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.net.Socket;
 
-public class Chat implements Runnable{
-    private Socket clienSocket;
-    private String username;
+public class Chat implements Runnable {
+    private Client client;
 
-    public Chat(Socket socket, String username){
-        this.clienSocket = socket;
-        this.username = username;
+    public Chat(Client client) {
+        this.client = client;
     }
 
     @Override
     public void run() {
-        try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(clienSocket.getInputStream()));
-            PrintWriter out = new PrintWriter(clienSocket.getOutputStream(), true);
-            
-            while (true) {
-                String message = in.readLine();
-                System.out.println(username+": "+message);
-                out.println(username+": "+message);
+        try {
+            String message;
+            while ((message = client.receiveMessage()) != null) {
+                Server.broadcastMessage(message, client);
+                System.out.println(client.getUsername() + ": " + message);
+                
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Conexão encerrada");
+        } finally {
+            System.out.println(client.getUsername() + " se desconectou");
+
+            synchronized (Server.clients) {
+                Server.clients.remove(client);
+                Server.broadcastMessage(client.getUsername() + " se desconectou", client);
+            }
+            client.closeConnection();
         }
     }
-
-    
 }
