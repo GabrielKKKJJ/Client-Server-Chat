@@ -34,7 +34,7 @@ public class Server {
     public static void broadcastMessage(String message, Client sender) {
         for (Client client : clients) {
             if (client != sender) {
-                client.sendMessage(message);
+                client.sendMessage(sender.getUsername() + ": " + message);
             }
         }
     }
