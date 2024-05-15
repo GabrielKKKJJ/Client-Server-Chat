@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.TextFlow?>
+
+<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #383838;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Client.Interface.Controllers.FXMLControllers">
+   <children>
+      <Pane layoutX="359.0" layoutY="65.0" prefHeight="908.0" prefWidth="1300.0" style="-fx-background-color: #282525; -fx-border-radius: 20px; -fx-background-radius: 20;" AnchorPane.bottomAnchor="107.0" AnchorPane.topAnchor="65.0">
+         <children>
+            <TextField fx:id="userMessage" layoutX="20.0" layoutY="808.0" onAction="#Send_Message" prefHeight="50.0" prefWidth="1200.0" promptText="Envie sua mensagem..." style="-fx-background-color: #383838; -fx-text-fill: white; -fx-background-radius: 20px;">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Button layoutX="1226.0" layoutY="808.0" mnemonicParsing="false" onAction="#Send_Message" style="-fx-background-color: #383838; -fx-background-radius: 20px;">
+               <graphic>
+                  <ImageView fx:id="sendBtn" fitHeight="42.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/send.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ScrollPane fitToWidth="true" layoutX="26.0" layoutY="43.0" prefHeight="755.0" prefWidth="1200.0" stylesheets="@styles.css" >
+               <content>
+                  <VBox prefHeight="755.0" prefWidth="1184.0" style="-fx-background-color: #282525;">
+                     <children>
+                        <TextFlow fx:id="msgFlow" prefHeight="700.0" prefWidth="1184.0" style="-fx-background-color: none;" />
+                     </children>
+                  </VBox>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <AnchorPane prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #282525;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="100.0" fitWidth="100.0" layoutX="100.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="40.0">
+               <image>
+                  <Image url="@../assets/profile.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="113.0" layoutY="154.0" text="Usuario" textFill="WHITE" AnchorPane.topAnchor="150.0">
+               <font>
+                  <Font name="Ubuntu Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button layoutY="333.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="200.0" stylesheets="@styles.css" text="Perfil" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/perfil.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Ubuntu" size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="8.0" layoutY="415.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="211.0" style="-fx-background-color: none; -fx-font-weight: bold;" text="Grupos" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/group.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Ubuntu" size="30.0" />
+               </font>
+            </Button>
+            <Button layoutX="-9.0" layoutY="916.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="336.0" style="-fx-background-color: none; -fx-font-weight: bold;" text="Configuraçoes" textFill="WHITE">
+               <graphic>
+                  <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assets/Settings.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Ubuntu" size="30.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="1706.0" layoutY="65.0" prefHeight="908.0" prefWidth="200.0" style="-fx-background-color: #282525; -fx-background-radius: 20;" AnchorPane.bottomAnchor="107.0" AnchorPane.topAnchor="65.0" />
+   </children>
+</AnchorPane>

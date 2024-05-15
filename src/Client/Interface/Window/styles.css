@@ -1,0 +1,35 @@
+/* Estilo botão */
+.button {
+    -fx-background-color: #282525; 
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-background-color: #282525; /* Cor do botão ao passar o mouse por cima */
+}
+
+
+
+/* Estilo da barra de rolagem */
+.scroll-pane {
+    -fx-background-color: none; /* Cor de fundo */
+}
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: none; /* Cor de fundo da barra */
+}
+
+.scroll-pane .scroll-bar:vertical .increment-button {
+    -fx-background-color: none; /* Cor do botão de incremento */
+}
+
+.scroll-pane .scroll-bar:vertical .decrement-button {
+    -fx-background-color: none; /* Cor do botão de decremento */
+}
+
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #666666; /* Cor do polegar */
+}
+
+.scroll-pane .scroll-bar:vertical:hover .thumb {
+    -fx-background-color: #444444; /* Cor do polegar ao passar o mouse por cima */
+}
