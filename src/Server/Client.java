@@ -1,11 +1,14 @@
 package Server;
 
+import java.io.IOException;
+import java.util.List;
+
 public class Client {
-    private ClientConnection clientConnection;
+    private ConnectionHandler connectionHandler;
     private String username;
 
-    public Client(ClientConnection clientConnection, String username) {
-        this.clientConnection = clientConnection;
+    public Client(ConnectionHandler connectionHandler, String username) {
+        this.connectionHandler = connectionHandler;
         this.username = username;
     }
 
@@ -13,20 +16,24 @@ public class Client {
         return username;
     }
 
-    public ClientConnection getClientConnection() {
-        return clientConnection;
+    public ConnectionHandler getClientConnection() {
+        return connectionHandler;
     }
 
     public void sendMessage(String message) {
-        clientConnection.sendMessage(message);
+        connectionHandler.sendMessage(message);
+    }
+
+    public void sendClientList(List<String> clients) throws IOException {
+        connectionHandler.sendClientList(clients);
     }
 
     public String receiveMessage() {
-        return clientConnection.receiveMessage();
+        return connectionHandler.receiveMessage();
     }
     
     public void closeConnection() {
-        clientConnection.closeConnection();
+        connectionHandler.closeConnection();
     }
     
 }

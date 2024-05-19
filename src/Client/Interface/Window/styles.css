@@ -33,3 +33,12 @@
 .scroll-pane .scroll-bar:vertical:hover .thumb {
     -fx-background-color: #444444; /* Cor do polegar ao passar o mouse por cima */
 }
+
+
+
+ListView {
+    -fx-background-color: none;
+    -fx-font-weight: bold;
+    -fx-font-size: 20px;
+    -fx-font-color: white;
+}

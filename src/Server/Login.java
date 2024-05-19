@@ -1,23 +1,24 @@
 package Server;
 
 public class Login implements Runnable{
-    private ClientConnection clientConnection;
+    private ConnectionHandler connectionHandler;
 
-    public Login(ClientConnection clientConnection) {
-        this.clientConnection = clientConnection;
+    public Login(ConnectionHandler connectionHandler) {
+        this.connectionHandler = connectionHandler;
     }   
 
     public void run() {
         try{
                 
-            clientConnection.sendMessage("Informe seu nome");
+            connectionHandler.sendMessage("Informe seu nome");
 
-            String username = clientConnection.receiveMessage();
+            String username = connectionHandler.receiveMessage();
             System.out.println(username+" Se conectou");
 
-            Client client = new Client(clientConnection, username);
+            Client client = new Client(connectionHandler, username);
             synchronized (Server.clients) {
                 Server.clients.add(client);
+                Server.sendUpdatedClientList();
             }
 
             Chat chat = new Chat(client);

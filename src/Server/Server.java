@@ -1,9 +1,12 @@
 package Server;
+
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.List;
+
+import javafx.collections.FXCollections;
 
 public class Server {
     private static final int PORT = 12345;
@@ -18,9 +21,9 @@ public class Server {
                     Socket cliente = server.accept();
                     System.out.println("Cliente conected: "+ cliente.getInetAddress().getHostAddress());
 
-                    ClientConnection clientConnection = new ClientConnection(cliente);
+                    ConnectionHandler connectionHandler = new ConnectionHandler(cliente);
 
-                    Login login = new Login(clientConnection);
+                    Login login = new Login(connectionHandler);
                     Thread loginThread = new Thread(login);
                     loginThread.start();
 
@@ -39,11 +42,24 @@ public class Server {
         }
     }
 
-    public static void addClient(Client client) {
+    public static void addClient(Client client) throws IOException {
         clients.add(client);
+        sendUpdatedClientList();
     }
 
-    public static void removeClient(Client client) {
+    public static void removeClient(Client client) throws IOException {
         clients.remove(client);
+        sendUpdatedClientList();
+    }
+
+    public static void sendUpdatedClientList() throws IOException {
+        List<String> usernameList = FXCollections.observableArrayList();
+
+        for (Client client : clients) {
+            usernameList.add(client.getUsername());
+        }
+        for (Client client : clients) {
+            client.sendClientList(usernameList);
+        }
     }
 }
