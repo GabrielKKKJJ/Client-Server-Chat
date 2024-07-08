@@ -7,6 +7,10 @@ Um projeto simples de chat utilizando sockets e JavaFX, permitindo comunicação
 
 ![Screenshot](img.png)
 
+### 📃 Dependencias
+
+Para conseguir executar o projeto é necessario que você tenha o JavaFx
+
 ### ⚙️ Como Executar
 
 Para executar o projeto, siga os passos abaixo você precisa executar primeiro o
