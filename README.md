@@ -1,18 +1,24 @@
-## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+---
+## 💻 Client Server Chat
 
-## Folder Structure
 
-The workspace contains two folders by default, where:
+Um projeto simples de chat utilizando sockets e JavaFX, permitindo comunicação entre cliente e servidor.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+![Screenshot](img.png)
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+### ⚙️ Como Executar
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+Para executar o projeto, siga os passos abaixo você precisa executar primeiro o
+Server e depois o UI
 
-## Dependency Management
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+### Contribuições
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar pull requests ou relatar problemas.
+
+### Licença
+
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
+
+---
