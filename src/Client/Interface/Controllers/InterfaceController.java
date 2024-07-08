@@ -14,7 +14,7 @@ import javafx.scene.text.TextFlow;
 import Client.core.ConnectionHandler;
 import java.util.ArrayList;
 
-public class FXMLControllers {
+public class InterfaceController {
 
     @FXML
     private ImageView sendBtn;
@@ -44,9 +44,11 @@ public class FXMLControllers {
     }
 
     public void updateUsersList(ArrayList<String> users) {
-        ObservableList<String> userList = FXCollections.observableArrayList(users);
-        System.out.println(userList);
-        this.userList.setItems(userList);
+        if(users != null) {
+            ObservableList<String> userList = FXCollections.observableArrayList(users);
+            System.out.println(userList);
+            this.userList.setItems(userList);
+        }
     }
 
     @FXML

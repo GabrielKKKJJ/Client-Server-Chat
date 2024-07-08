@@ -1,7 +1,7 @@
 package Client.Interface;
 
 import java.io.IOException;
-import Client.Interface.Controllers.FXMLControllers;
+import Client.Interface.Controllers.InterfaceController;
 import Client.core.ClientService;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class UI extends Application {
 
-    private FXMLControllers interfaceController;
+    private InterfaceController interfaceController;
 
     public static void main(String[] args) {
         launch(args);
@@ -20,7 +20,7 @@ public class UI extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
         // Carrega a interface gráfica
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Client/Interface/Window/window.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Client/Interface/Styles/window.fxml"));
         Parent root = loader.load();
     
         // Obtém o controlador da interface gráfica

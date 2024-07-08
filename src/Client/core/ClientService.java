@@ -3,13 +3,13 @@ package Client.core;
 import java.net.Socket;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import Client.Interface.Controllers.FXMLControllers;
+import Client.Interface.Controllers.InterfaceController;
 
 public class ClientService extends Service<Void> {
 
-    private FXMLControllers interfaceController;
+    private InterfaceController interfaceController;
 
-    public ClientService(FXMLControllers interfaceController) {
+    public ClientService(InterfaceController interfaceController) {
         this.interfaceController = interfaceController;
     }
 
@@ -35,11 +35,10 @@ public class ClientService extends Service<Void> {
             String loginMsg = connectionHandler.receiveMessage();
             interfaceController.ui_sendMessage(loginMsg);
 
-            //interfaceController.updateUsersList(connectionHandler.receiveClientList());
+            interfaceController.updateUsersList(connectionHandler.receiveClientList());
 
             // Cria e inicia as threads de entrada
             InputThread inputThread = new InputThread(connectionHandler.getSocket().getInputStream(), interfaceController);
-
             inputThread.start();
 
             // Aguarda as threads terminarem

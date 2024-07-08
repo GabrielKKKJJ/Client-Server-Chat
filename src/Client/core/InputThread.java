@@ -4,13 +4,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import Client.Interface.Controllers.FXMLControllers;
+import Client.Interface.Controllers.InterfaceController;
 
 public class InputThread extends Thread {
     private BufferedReader in;
-    private FXMLControllers interfaceController;
+    private InterfaceController interfaceController;
 
-    public InputThread(InputStream inputStream, FXMLControllers interfaceController) {
+    public InputThread(InputStream inputStream, InterfaceController interfaceController) {
         this.in = new BufferedReader(new InputStreamReader(inputStream));
         this.interfaceController = interfaceController;
     }
@@ -20,6 +20,7 @@ public class InputThread extends Thread {
         try {
             String message;
             while ((message = in.readLine()) != null) {
+                System.out.println(message);
                 interfaceController.ui_sendMessage(message);
             }
         } catch (IOException e) {
